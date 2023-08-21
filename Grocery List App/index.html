@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grocery List App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div class="container">
+        <div class="title">
+            <h1>Grocery List App 🛒</h1>
+        </div>
+        <div id="newItem">
+            <span id="txt">Type in what you need and click <b>'Submit'</b> to add new item to the list!</span>
+            <form action="/nothing" id="newItemForm">
+                <input type="text" placeholder="For example: Cheese" id="inputVal">
+                <button id="submitBtn">Submit</button>
+            </form>
+        </div>
+        <ul id="myList">
+            <!--
+            <li>
+                <span>Cheese</span>
+                <button class="done-btn">Done</button>
+                <button class="remove-btn">Remove</button>
+            </li>
+            -->
+        </ul>
+    </div>
+
+
+
+    <script src="script.js"></script>
+</body>
+</html>
