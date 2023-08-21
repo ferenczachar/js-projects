@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body, .container, .cards, .card-front, .card-back {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background-color: #d983f5;
+}
+
+.container {
+    background-color: #eddcf3;
+    width: 600px;
+    height: 600px;
+    border-radius: 20px;
+    overflow-y: hidden;
+}
+
+.cards {
+    width: 100%;
+    height: 100%;
+    flex-wrap: wrap;
+}
+
+.card, .card.flip {
+    width: calc(100% / 4 - 30px);
+    height: calc(100% / 4 - 30px);
+    position: relative; /* a .card div-hez fogom tudni igazítani a kártya első és hátsó felét*/
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    border-radius: 20px;
+    margin: 10px;
+    cursor: pointer;
+    perspective: 800px;
+    z-index: 99;
+}
+
+.card-front, .card-back {
+    position: absolute; /* egymásra tudom helyezni a két oldalt*/
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+img {
+    width: 60%;
+    height: 60%;
+    user-select: none;
+}
+
+.card-front, .card-back, img {
+    pointer-events: none;   /* FONTOS !!!!!*/
+    /*Ha ez hozzá van adva, akkor a DIV-hez fogja hozzáadni a .flip classt!!*/
+}
+
+.card-front {
+    transform: rotateY(180deg);
+}
+
+.card.flip .card-back {
+    transform: rotateY(180deg);
+}
+.card.flip .card-front {
+    transform: rotateY(0deg);
+}
+
+.card.flip .card-back,
+.card.flip .card-front {
+    transition: all 300ms 100ms ease-in-out; /* 700ms = duration, 100ms = delay*/
+    transform-style: preserve-3d;
+}
+
+.card.shake {
+    animation: shake 0.35s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    20% {
+        transform: translateX(-13px);
+    }
+    40% {
+        transform: translateX(13px);
+    }
+    60% {
+        transform: translateX(-8px);
+    }
+    80% {
+        transform: translateX(8px);
+    }
+}
